@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选课系统 - 开课</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>开课</h1>
+    <form id="openCourseForm">
+        <label for="courseName">课程名称：</label>
+        <input type="text" id="courseName" name="courseName" required>
+
+        <label for="courseCode">课程代码：</label>
+        <input type="text" id="courseCode" name="courseCode" required>
+
+        <label for="courseInstructor">授课教师：</label>
+        <input type="text" id="courseInstructor" name="courseInstructor" required>
+
+        <label for="courseCredits">学分：</label>
+        <select id="courseCredits" name="courseCredits" required>
+            <option value="2">2 学分</option>
+            <option value="3">3 学分</option>
+            <option value="4">4 学分</option>
+        </select>
+
+        <button type="submit">提交开课请求</button>
+    </form>
+
+    <script>
+        document.getElementById('openCourseForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单默认提交
+            const courseName = document.getElementById('courseName').value;
+            const courseCode = document.getElementById('courseCode').value;
+            const courseInstructor = document.getElementById('courseInstructor').value;
+            const courseCredits = document.getElementById('courseCredits').value;
+
+            alert('已成功开设课程:\n' +
+                  '课程名称: ' + courseName + '\n' +
+                  '课程代码: ' + courseCode + '\n' +
+                  '授课教师: ' + courseInstructor + '\n' +
+                  '学分: ' + courseCredits);
+        });
+    </script>
+
+</body>
+</html>
