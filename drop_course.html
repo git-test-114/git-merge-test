@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选课系统 - 加选课程</title>
+    <title>选课系统 - 退选课程</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,50 +21,50 @@
         }
         button {
             padding: 10px 15px;
-            background-color: #007BFF;
+            background-color: #FF4C4C;
             color: white;
             border: none;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #c70000;
         }
     </style>
 </head>
 <body>
 
-    <h1>加选课程</h1>
-    <form id="courseForm">
+    <h1>退选课程</h1>
+    <form id="dropCourseForm">
         <div class="course-list">
             <label>
-                <input type="checkbox" name="courses" value="计算机科学基础"> 计算机科学基础
+                <input type="checkbox" name="courses" value="计算机科学基础" checked> 计算机科学基础
             </label>
             <label>
-                <input type="checkbox" name="courses" value="数据结构"> 数据结构
+                <input type="checkbox" name="courses" value="数据结构" checked> 数据结构
             </label>
             <label>
                 <input type="checkbox" name="courses" value="数据库原理"> 数据库原理
             </label>
             <label>
-                <input type="checkbox" name="courses" value="操作系统"> 操作系统
+                <input type="checkbox" name="courses" value="操作系统" checked> 操作系统
             </label>
             <label>
                 <input type="checkbox" name="courses" value="人工智能"> 人工智能
             </label>
         </div>
-        <button type="submit">提交加选请求</button>
+        <button type="submit">提交退选请求</button>
     </form>
 
     <script>
-        document.getElementById('courseForm').addEventListener('submit', function(event) {
+        document.getElementById('dropCourseForm').addEventListener('submit', function(event) {
             event.preventDefault(); // 阻止表单默认提交
-            const selectedCourses = Array.from(document.querySelectorAll('input[name="courses"]:checked'))
+            const droppedCourses = Array.from(document.querySelectorAll('input[name="courses"]:checked'))
                 .map(checkbox => checkbox.value);
 
-            if (selectedCourses.length > 0) {
-                alert('你已成功加选课程: ' + selectedCourses.join(', '));
+            if (droppedCourses.length > 0) {
+                alert('你已成功退选课程: ' + droppedCourses.join(', '));
             } else {
-                alert('请至少选择一门课程！');
+                alert('请至少选择一门课程进行退选！');
             }
         });
     </script>
